@@ -1,0 +1,32 @@
+z = [4, 3, 2, 1]
+print(z[1])
+z = int(input('Наберите количество чисел: '))
+w = []
+for i in range(z):
+    a = int(input(''))
+    w.append(a)
+w.sort()
+print(w)
+d = int(input('Наберите число, которое необходимо найти: '))
+m = len(w) // 2
+low = 0
+high = len(w) - 1
+q = 1
+while w[m] != d and low <= high:
+    if d > w[m]:
+        low = m + 1
+    else:
+        high = m - 1
+    m = (low + high)//2
+    q = q + 1
+if low > high:
+    print('Ошибка в нахождении числа')
+    print('Шаги', q)
+else:
+    print('Индекс', m)
+    print('Шаги', q)
+print('x y')
+for x in range(2):
+    for y in range(2):
+        if ((x<y) and ((not(y)) <= x)):
+            print(x, y)
