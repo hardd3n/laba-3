@@ -1,0 +1,188 @@
+'''O(3n)'''
+
+a=[1,2,3,4]
+
+sum = 0
+
+for i in a:
+
+    sum+=i
+
+
+
+
+print(sum)
+
+
+
+
+'''O(nlogn)'''
+
+def find_indices(arr):
+
+    indices = []
+
+    for num in arr:
+
+        index = binary_search(arr, 0, len(arr), num)
+
+        indices.append(index)
+
+    return indices
+
+
+
+
+def binary_search(arr, l, r, x):
+
+
+
+
+    if r >= l:
+
+
+
+
+        mid = l + (r - l)/2
+
+
+
+
+        if arr[mid] == x:
+
+            return mid
+
+
+
+
+        elif arr[mid] > x:
+
+            return binary_search(arr, l, mid-1, x)
+
+
+
+
+
+
+
+        else:
+
+            return binary_search(arr, mid + 1, r, x)
+
+
+
+
+    else:
+
+        return -1
+
+
+
+
+'''O(n!)'''
+
+
+
+
+def factorial(container, n):
+
+      if n == 1:
+
+            print(container)
+
+            return
+
+      for i in range(n):
+
+            factorial(container, n - 1)
+
+            if n % 2 == 0:
+
+                  container[i], container[n-1] = container[n-1], container[i]
+
+            else:
+
+                  container[0], container[n - 1] = container[n - 1], container[0]
+
+if __name__=='__main__':
+
+      a = int(input('Введите: '))
+
+      container = [1, 2, 3, 4, 5, 6, 7, 8]
+
+print(factorial(container, len(container)))
+
+
+
+
+'''O(n^3)'''
+
+print('x y z')
+
+for x in range(2):
+
+    for y in range(2):
+
+        for z in range(2):
+
+            if not(not(x <= y) or ((not(x)) <= (not(z))) or y):
+
+                print(x, y, z)
+
+
+
+
+'''O(3log(n))'''
+
+
+
+
+a = int(input('Введи количество чисел: '))
+
+s = []
+
+for i in range(a):
+
+    b = int(input(''))
+
+    s.append(b)
+
+s.sort()
+
+print(s)
+
+d = int(input('Введи число, кторое нужно найти: '))
+
+m = len(s)//2
+
+low = 0
+
+high = len(s) - 1
+
+q = 1
+
+while s[m] != d and low <= high:
+
+    if d > s[m]:
+
+        low = m + 1
+
+    else:
+
+        high = m - 1
+
+    m = (low + high)//2
+
+    q = q + 1
+
+if low > high:
+
+    print('Такого числа нет')
+
+    print('Шаги', q)
+
+else:
+
+    print('У числа индекс', m)
+
+    print('Шаги', q)
